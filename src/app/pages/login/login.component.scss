@@ -1,0 +1,31 @@
+@import "variables";
+
+.container {
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+
+  .base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+
+    img {
+      width: 40%;
+    }
+
+    button {
+      font-size: 1rem;
+      min-width: 200px;
+      padding: 10px;
+      border-radius: 500px;
+      background-color: $cor-primaria;
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+}
