@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './guards/auth-guard.resolver';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'player', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () =>
@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/player/player.module').then((p) => p.PlayerModule),
     resolve: {
-      usuarioLogado: authGuard,
+      loggedUser: authGuard,
     },
   },
 ];

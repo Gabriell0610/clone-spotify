@@ -4,24 +4,31 @@ import { SpotifyService } from '../services/spotify.service';
 
 export const authGuard = () =>
   new Promise(async (res, rej) => {
+    //Pegando as dependecias necessárias
     const spotifyService = inject(SpotifyService);
     const router = inject(Router);
 
-    const notAuthentic = () => {
+    //Função que lida quando o usuário não esta autenticado
+    const notAuthenticated = () => {
       localStorage.clear();
       router.navigateByUrl('/login');
       rej('USUARIO NAO AUTENTICADO!');
       return false;
     };
 
+    //Pegando o token no localStorage
     const token = localStorage.getItem('token');
 
+    //Verificando se o token existe
     if (!token) {
-      return notAuthentic();
+      //Sse não existir chama a função abaixo
+      return notAuthenticated();
     }
 
+    //Variável que armazena o valor que vem da função initializeUser
     const usuarioCriado = await spotifyService.initializeUser();
+    //Verificando se o usuario é true
     if (usuarioCriado) res(true);
-    else res(notAuthentic());
+    else res(notAuthenticated());
     return false;
   });

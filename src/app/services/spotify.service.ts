@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interface/IUsuario';
+import { getDataUser } from '../common/getDataUser';
 
 @Injectable({
   providedIn: 'root',
@@ -31,18 +32,20 @@ export class SpotifyService {
     }
 
     try {
+      //Função que da autotorização para o usuário utilizar a API através do token
       this.definedAcessToken(token);
+      //Esperando esse função Pegar os dados do usuario
       await this.getSpotifyUser();
-      return true;
+      return !!this.usuario;
     } catch (error) {
       return error;
     }
   }
 
-  //pega os dados do usuário
+  //pegando os dados do usuário
   async getSpotifyUser() {
     const userInfo = await this.spotifyApi.getMe();
-    console.log(userInfo);
+    this.usuario = getDataUser(userInfo);
   }
 
   //Função que concatena toda a url que leva para a página de autorização do spotify
@@ -69,7 +72,7 @@ export class SpotifyService {
     return params[0].split('=')[1];
   }
 
-  //função que define o acesso do usuário pelo token
+  //função que define o acesso do usuário pelo token e salva no localStorage
   definedAcessToken(token: string) {
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
