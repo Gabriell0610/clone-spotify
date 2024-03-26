@@ -4,7 +4,7 @@ import { SpotifyService } from '../services/spotify.service';
 
 export const authGuard = () =>
   new Promise(async (res, rej) => {
-    //Pegando as dependecias necessárias
+    //Pegando as dependecias necessárias com inject
     const spotifyService = inject(SpotifyService);
     const router = inject(Router);
 

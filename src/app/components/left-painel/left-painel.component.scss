@@ -1,0 +1,77 @@
+@import "Variables";
+
+.painel-container {
+  position: fixed;
+  min-width: 230px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .content {
+    width: 85%;
+
+    .img-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 11rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .cards {
+      margin-top: 1.5rem;
+      padding: 0.5rem 1rem;
+      color: $cor-primaria;
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .icon {
+        padding-right: 0.7rem;
+        font-size: 1rem;
+      }
+    }
+
+    .bg {
+      background-color: $cor-primaria;
+      border-radius: 4px;
+      color: #fff;
+    }
+  }
+}
+
+// .painel-container {
+//   max-width: 300px;
+//   min-height: 100vh;
+//   overflow-y: hidden;
+//   background-color: #fff;
+//   padding: 2rem;
+//   display: flex;
+//   flex-direction: column;
+
+//   .content {
+//     display: flex;
+//     flex-direction: column;
+//     flex: 1;
+//     height: 100%;
+
+//     .img-container {
+//       img {
+//         width: 11rem;
+//       }
+//     }
+
+//     .cards {
+//       margin-top: 2rem;
+//     }
+//   }
+// }
