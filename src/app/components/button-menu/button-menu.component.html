@@ -1,1 +1,4 @@
-<p>button-menu works!</p>
+<button type="button" [class.activate]="selected == true" (click)="onClick()">
+  <ng-content></ng-content>
+  <span>{{ nameMenu }}</span>
+</button>

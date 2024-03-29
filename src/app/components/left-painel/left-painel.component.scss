@@ -9,6 +9,7 @@
   background-color: $cor-fundo2;
   padding: 2rem;
   box-shadow: 1px 1px 15px rgba(0, 0, 12, 0.308);
+  overflow-y: auto;
 
   .content {
     flex: 1;
@@ -17,18 +18,17 @@
     flex-direction: column;
 
     .img-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
       img {
         width: 11rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
       }
     }
 
     .menus {
+      display: flex;
+      flex-direction: column;
       width: 100%;
+      min-height: 150px;
     }
 
     // .cards {

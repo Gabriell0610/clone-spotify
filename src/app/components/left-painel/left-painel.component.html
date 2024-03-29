@@ -4,18 +4,29 @@
       <img src="../../../assets/img/spotify-logo.png" alt="" />
     </div>
     <div class="menus">
-      <app-button-menu></app-button-menu>
-      <app-button-menu></app-button-menu>
+      <app-button-menu
+        [nameMenu]="'Home'"
+        [selected]="btnSelected === 'Home'"
+        (click)="buttonClick('Home')"
+      >
+        <i class="fa-solid fa-house"></i>
+      </app-button-menu>
+
+      <app-button-menu
+        [nameMenu]="'Pesquisar'"
+        [selected]="btnSelected === 'Pesquisar'"
+        (click)="buttonClick('Pesquisar')"
+      >
+        <i class="fa-solid fa-search"></i>
+      </app-button-menu>
+
+      <app-button-menu
+        [nameMenu]="'Artistas'"
+        [selected]="btnSelected === 'Artistas'"
+        (click)="buttonClick('Artistas')"
+      >
+        <i class="fa-solid fa-guitar"></i>
+      </app-button-menu>
     </div>
   </div>
 </div>
-
-<!-- <div class="cards bg">
-        <p><i class="fa-solid fa-house icon"></i>Home</p>
-      </div>
-      <div class="cards">
-        <p><i class="fa-solid fa-magnifying-glass icon"></i>Pesquisar</p>
-      </div>
-      <div class="cards">
-        <p><i class="fa-solid fa-guitar icon"></i>Artistas</p>
-      </div> -->
