@@ -14,5 +14,7 @@ export class ButtonMenuComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClick(): void {}
+  onClick(): void {
+    this.click.emit();
+  }
 }
