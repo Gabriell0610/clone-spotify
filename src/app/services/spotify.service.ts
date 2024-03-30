@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interface/IUsuario';
-import { getDataUser } from '../common/getDataUser';
+import { getDataPlaylist, getDataUser } from '../common/getDataUser';
+import { IPlaylist } from '../interface/IPlaylist';
 
 @Injectable({
   providedIn: 'root',
@@ -44,8 +45,20 @@ export class SpotifyService {
 
   //pegando os dados do usuário
   async getSpotifyUser() {
+    //Pegando os dados do usuário pela api do spotify e armazendo na variával userInfo
     const userInfo = await this.spotifyApi.getMe();
+    console.log(userInfo);
     this.usuario = getDataUser(userInfo);
+  }
+
+  //Função que pega as playlits do usuário. Essa função é do tipo Promisse que é do tipo array de IPlaylist
+  async getUserPlaylist(offset = 0, limit = 50): Promise<IPlaylist[]> {
+    const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, {
+      offset,
+      limit,
+    });
+    console.log(playlists);
+    return playlists.items.map((item) => getDataPlaylist(item));
   }
 
   //Função que concatena toda a url que leva para a página de autorização do spotify

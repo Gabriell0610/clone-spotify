@@ -3,6 +3,7 @@
     <div class="img-container">
       <img src="../../../assets/img/spotify-logo.png" alt="" />
     </div>
+
     <div class="menus">
       <app-button-menu
         [nameMenu]="'Home'"
@@ -27,6 +28,21 @@
       >
         <i class="fa-solid fa-guitar"></i>
       </app-button-menu>
+    </div>
+
+    <div class="menus">
+      <span class="playlist-title"> PLAYLISTS </span>
+
+      <div class="playlist-scroll">
+        <app-button-menu
+          *ngFor="let playlist of playlistUser"
+          [nameMenu]="playlist.name"
+          [selected]="btnSelected === playlist.id"
+          (click)="buttonClick(playlist.id)"
+        >
+          <i class="fa-solid fa-music"></i>
+        </app-button-menu>
+      </div>
     </div>
   </div>
 </div>

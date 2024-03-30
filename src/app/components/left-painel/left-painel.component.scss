@@ -1,8 +1,8 @@
-@import "Variables";
+@import "variables";
 
 .painel-container {
   position: fixed;
-  min-width: 210px;
+  max-width: 230px;
   height: 100vh;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   overflow-y: auto;
 
   .content {
-    flex: 1;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,7 +20,7 @@
     .img-container {
       img {
         width: 11rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -28,55 +28,24 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      min-height: 150px;
+
+      .playlist-title {
+        font-size: 0.8rem;
+        margin: 10px 0;
+        align-self: flex-start;
+        font-weight: 600;
+        color: $preto-transparent-30;
+      }
+
+      .playlist-scroll {
+        width: 100%;
+        max-height: 30vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
-
-    // .cards {
-    //   margin-top: 1.2rem;
-    //   padding: 0.6rem 1rem;
-    //   color: $cor-primaria;
-
-    //   p {
-    //     font-size: 0.9rem;
-    //   }
-
-    //   .icon {
-    //     padding-right: 0.7rem;
-    //     font-size: 1rem;
-    //   }
-    // }
-
-    // .bg {
-    //   background-color: $cor-primaria;
-    //   border-radius: 7px;
-    //   color: #fff;
-    // }
   }
 }
-
-// .painel-container {
-//   max-width: 300px;
-//   min-height: 100vh;
-//   overflow-y: hidden;
-//   background-color: #fff;
-//   padding: 2rem;
-//   display: flex;
-//   flex-direction: column;
-
-//   .content {
-//     display: flex;
-//     flex-direction: column;
-//     flex: 1;
-//     height: 100%;
-
-//     .img-container {
-//       img {
-//         width: 11rem;
-//       }
-//     }
-
-//     .cards {
-//       margin-top: 2rem;
-//     }
-//   }
-// }
