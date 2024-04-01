@@ -4,6 +4,7 @@ import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interface/IUsuario';
 import { getDataPlaylist, getDataUser } from '../common/getDataUser';
 import { IPlaylist } from '../interface/IPlaylist';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +16,14 @@ export class SpotifyService {
   //a interface é necessário, pois vamos pegar os dados do usuario da api
   usuario: IUsuario;
 
-  constructor() {
+  constructor(private router: Router) {
     //Criando uma instância da lib do spotify
     this.spotifyApi = new Spotify();
   }
 
   // essa func é responsável por verificar se o usuário já está autenticado e inicializar seus dados, se necessário
   async initializeUser() {
+    //Verifica se a Interface de usuário está preenchida
     if (!!this.usuario) {
       return true;
     }
@@ -89,5 +91,10 @@ export class SpotifyService {
   definedAcessToken(token: string) {
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

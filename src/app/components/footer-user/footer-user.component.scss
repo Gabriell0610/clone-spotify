@@ -1,0 +1,43 @@
+@import "variables";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.3rem;
+
+  .container-img {
+    img {
+      flex-grow: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+
+  span {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  .name::first-letter {
+    text-transform: uppercase;
+  }
+
+  .icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  .anyImage {
+    background-color: $cor-primaria;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+  }
+}

@@ -9,6 +9,8 @@ export function getDataUser(
   let imageUrl: string | undefined;
   if (data.images && data.images.length > 0) {
     imageUrl = data.images.pop()?.url;
+  } else if (data.images.length === 0) {
+    imageUrl = data.display_name[0].toUpperCase();
   }
 
   return {
@@ -28,9 +30,16 @@ export function getDataPlaylist(
     imageUrl = dataPlaylist.images.pop()?.url;
   }
 
+  let anyName: string;
+  if (dataPlaylist.name !== '') {
+    anyName = dataPlaylist.name;
+  } else {
+    anyName = '**';
+  }
+
   return {
     id: dataPlaylist.id,
-    name: dataPlaylist.name,
+    name: anyName,
     imageUrl: imageUrl,
   };
 }

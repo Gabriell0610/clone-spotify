@@ -1,33 +1,39 @@
 @import "variables";
 
+$w-100: 100%;
+$footer-heigth: 70px;
+$h-spotify-logo: 80px;
+$h-menus: 150px;
+
+$h-desconsiderar: calc($h-spotify-logo + $footer-heigth + $h-menus);
+
 .painel-container {
   position: fixed;
-  max-width: 230px;
+  max-width: 210px;
   height: 100vh;
+  padding: 2rem;
+  box-shadow: 1px 1px 15px rgba(0, 0, 12, 0.308);
   top: 0;
   left: 0;
   background-color: $cor-fundo2;
-  padding: 2rem;
-  box-shadow: 1px 1px 15px rgba(0, 0, 12, 0.308);
-  overflow-y: auto;
 
   .content {
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 
     .img-container {
+      min-height: $h-spotify-logo;
+
       img {
         width: 11rem;
-        margin-bottom: 1.5rem;
       }
     }
 
     .menus {
-      display: flex;
       flex-direction: column;
-      width: 100%;
+      width: $w-100;
+      height: $h-menus;
 
       .playlist-title {
         font-size: 0.8rem;
@@ -38,13 +44,26 @@
       }
 
       .playlist-scroll {
-        width: 100%;
-        max-height: 30vh;
+        width: $w-100;
+        max-height: calc(95vh - $h-desconsiderar);
         overflow-y: auto;
 
         &::-webkit-scrollbar {
           display: none;
         }
+      }
+    }
+
+    .user-info {
+      position: absolute;
+      bottom: 1.7rem;
+      width: 100%;
+      height: $footer-heigth;
+      text-align: center;
+      padding: 1rem;
+
+      span {
+        font-size: 1.2rem;
       }
     }
   }

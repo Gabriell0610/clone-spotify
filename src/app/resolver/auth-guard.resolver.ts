@@ -11,7 +11,7 @@ export const authGuard = () =>
     //Função que lida quando o usuário não esta autenticado
     const notAuthenticated = () => {
       localStorage.clear();
-      router.navigateByUrl('/login');
+      router.navigate(['/login']);
       rej('USUARIO NAO AUTENTICADO!');
       return false;
     };
@@ -21,7 +21,7 @@ export const authGuard = () =>
 
     //Verificando se o token existe
     if (!token) {
-      //Sse não existir chama a função abaixo
+      //Se não existir chama a função abaixo
       return notAuthenticated();
     }
 

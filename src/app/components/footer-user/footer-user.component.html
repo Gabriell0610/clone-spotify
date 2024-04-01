@@ -1,0 +1,10 @@
+<div class="container">
+  <div *ngIf="usuario.imageUrl.length === 1" class="anyImage">
+    {{ usuario.imageUrl }}
+  </div>
+  <div *ngIf="usuario.imageUrl.length > 1" class="container-img">
+    <img [src]="usuario.imageUrl" alt="" />
+  </div>
+  <span class="name">{{ usuario.name }}</span>
+  <i class="fa-solid fa-right-from-bracket icon" (click)="logout()"></i>
+</div>
