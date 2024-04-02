@@ -6,6 +6,7 @@ import { PlayerRoutes } from './player.routes';
 import { LeftPainelComponent } from 'src/app/components/left-painel/left-painel.component';
 import { ButtonMenuComponent } from 'src/app/components/button-menu/button-menu.component';
 import { FooterUserComponent } from 'src/app/components/footer-user/footer-user.component';
+import { HomeComponent } from '../home/home.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FooterUserComponent } from 'src/app/components/footer-user/footer-user.
     LeftPainelComponent,
     ButtonMenuComponent,
     FooterUserComponent,
+    HomeComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(PlayerRoutes)],
 })

@@ -4,9 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   border-top: 1px solid #ccc;
   padding-top: 0.3rem;
+  color: $cor-primaria;
+  font-size: 1rem;
 
   .container-img {
     img {
@@ -17,18 +19,12 @@
     }
   }
 
-  span {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-  }
-
   .name::first-letter {
     text-transform: uppercase;
   }
 
   .icon {
     cursor: pointer;
-    font-size: 1.2rem;
   }
 
   .anyImage {

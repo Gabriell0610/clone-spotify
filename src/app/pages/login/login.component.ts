@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     //Verifica se o token não está em branco
     if (!!token) {
       this.spotifyService.definedAcessToken(token);
-      this.router.navigate(['/player']);
+      this.router.navigate(['/player/home']);
     }
   }
 

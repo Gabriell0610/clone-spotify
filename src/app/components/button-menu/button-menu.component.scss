@@ -1,7 +1,7 @@
 @import "variables";
 
 button {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
   width: 100%;
   text-align: left;
   font-size: 1rem;
@@ -26,5 +26,9 @@ button {
   &.activate {
     background-color: $cor-primaria;
     color: $branco;
+  }
+
+  .nameMenu::first-letter {
+    text-transform: uppercase;
   }
 }
