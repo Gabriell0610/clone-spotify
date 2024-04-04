@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authGuard } from './resolver/auth-guard.resolver';
+import { authGuard } from './resolver/loggedUser.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: 'player', pathMatch: 'full' },

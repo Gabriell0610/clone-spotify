@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { SpotifyService } from '../services/spotify.service';
 
+//Resolve que verificar se o usuário está autorizado e pega os dados do usuário
 export const authGuard = () =>
   new Promise(async (res, rej) => {
     //Pegando as dependecias necessárias com inject
