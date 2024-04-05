@@ -13,7 +13,7 @@ export class SpotifyService {
   //variável que incia a lib do spotify
   spotifyApi: Spotify.SpotifyWebApiJs = null;
 
-  //a interface é necessário, pois vamos pegar os dados do usuario da api
+  //a interface é necessário, pois vamos pegar os dados do usuario da api e armazenar nessa variável
   usuario: IUsuario;
 
   constructor(private router: Router) {
@@ -21,36 +21,38 @@ export class SpotifyService {
     this.spotifyApi = new Spotify();
   }
 
-  // essa func é responsável por verificar se o usuário já está autenticado e inicializar seus dados, se necessário
+  // essa func é responsável por verificar se o usuário já está autenticado e para inicializar seus dados
   async initializeUser() {
     //Verifica se a Interface de usuário está preenchida
     if (!!this.usuario) {
+      // variável que é do tipo IUsuario e armazena os dados
       return true;
     }
 
     const token = localStorage.getItem('token');
 
     if (!token) {
+      // Verifica se o token não existe e retorna false
       return false;
     }
 
+    //Dentro do try catch é feito o get dos dados do usuário e o retorno do erro
     try {
       //Função que da autotorização para o usuário utilizar a API através do token
       this.definedAcessToken(token);
-      //Esperando esse função Pegar os dados do usuario
+      //Esperando esse função Pegar os dados do usuario  - Por isso chamar o método acima é importante
       await this.getSpotifyUser();
-      return !!this.usuario;
+      return !!this.usuario; // Retorna true se o this.usuario estiver preenchido e false se não
     } catch (error) {
       return error;
     }
   }
-
   //pegando os dados do usuário
   async getSpotifyUser() {
     //Pegando os dados do usuário pela api do spotify e armazendo na variával userInfo
-    const userInfo = await this.spotifyApi.getMe();
+    const userInfo = await this.spotifyApi.getMe(); // Pegando os dados do usuário - Um objeto com as propriedades
     console.log(userInfo);
-    this.usuario = getDataUser(userInfo);
+    this.usuario = getDataUser(userInfo); // Armazenando dentro da variável this.usuáro a interface IUsuario preenchida
   }
 
   //Função que pega as playlits do usuário. Essa função é do tipo Promisse que é do tipo array de IPlaylist
