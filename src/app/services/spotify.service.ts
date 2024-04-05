@@ -2,9 +2,14 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interface/IUsuario';
-import { getDataPlaylist, getDataUser } from '../common/getDataUser';
+import {
+  getDataPlaylist,
+  getDataUser,
+  getTopArtists,
+} from '../common/getDataUser';
 import { IPlaylist } from '../interface/IPlaylist';
 import { Router } from '@angular/router';
+import { IArtists } from '../interface/IArtistas';
 
 @Injectable({
   providedIn: 'root',
@@ -63,6 +68,13 @@ export class SpotifyService {
     });
     console.log(playlists);
     return playlists.items.map((item) => getDataPlaylist(item));
+  }
+
+  //Pegando os top 10 artistas do usuário
+  async getArtistsUser(limit = 10): Promise<IArtists[]> {
+    const artist = await this.spotifyApi.getMyTopArtists(limit);
+    console.log(artist);
+    return artist.items.map(getTopArtists);
   }
 
   //Função que concatena toda a url que leva para a página de autorização do spotify

@@ -1,3 +1,4 @@
+import { IArtists } from '../interface/IArtistas';
 import { IPlaylist } from '../interface/IPlaylist';
 import { IUsuario } from '../interface/IUsuario';
 
@@ -41,5 +42,13 @@ export function getDataPlaylist(
     id: dataPlaylist.id,
     name: anyName,
     imageUrl: imageUrl,
+  };
+}
+
+export function getTopArtists(data: SpotifyApi.ArtistObjectFull): IArtists {
+  return {
+    id: data.id,
+    name: data.name,
+    imageUrl: data.images.sort((a, b) => a.width - b.width).pop().url, //pegando a imagem com a maior largura
   };
 }

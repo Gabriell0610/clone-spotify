@@ -5,7 +5,7 @@ export const environment = {
 export const SpotifyConfiguration = {
   clientId: 'e3c549b1874b4038b46a653904c39bd4',
   authEndpoint: 'https://accounts.spotify.com/authorize',
-  redirectUrl: 'http://clone-spotify-chi-one.vercel.app/login/',
+  redirectUrl: 'http://localhost:4200/login/',
   scopes: [
     'user-read-currently-playing', // musica tocando agora.
     'user-read-recently-played', // ler musicas tocadas recentemente
