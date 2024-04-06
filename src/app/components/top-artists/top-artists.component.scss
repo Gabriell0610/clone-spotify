@@ -1,13 +1,15 @@
 @import "variables";
 
 .card {
-  height: 200px;
+  height: 130px;
   overflow: hidden;
   position: relative;
+  display: flex;
 
   span {
     color: #000;
     text-shadow: 2px 2px 10px $branco;
+    font-size: 2rem;
   }
 
   .artists {
@@ -21,13 +23,13 @@
   .image {
     position: absolute;
     top: 0;
-    left: 0;
-    height: 130vh;
-    width: 100%;
+    right: 0;
+    height: 180%;
+    width: 40%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.7;
+    //opacity: 0.6;
     z-index: 0;
   }
 }

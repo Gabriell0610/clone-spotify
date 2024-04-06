@@ -8,7 +8,7 @@ import { ButtonMenuComponent } from 'src/app/components/button-menu/button-menu.
 import { FooterUserComponent } from 'src/app/components/footer-user/footer-user.component';
 import { HomeComponent } from '../home/home.component';
 import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.component';
-
+import { RigthPainelComponent } from 'src/app/components/rigth-painel/rigth-painel.component';
 @NgModule({
   declarations: [
     PlayerComponent,
@@ -17,6 +17,7 @@ import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.
     FooterUserComponent,
     HomeComponent,
     TopArtistsComponent,
+    RigthPainelComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(PlayerRoutes)],
 })

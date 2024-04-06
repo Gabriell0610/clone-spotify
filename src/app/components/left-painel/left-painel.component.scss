@@ -37,7 +37,6 @@ $h-desconsiderar: calc($h-spotify-logo + $footer-heigth + $h-menus);
 
       .playlist-title {
         font-size: 0.8rem;
-        margin: 10px 0;
         align-self: flex-start;
         font-weight: 600;
         color: $preto-transparent-30;
@@ -47,6 +46,7 @@ $h-desconsiderar: calc($h-spotify-logo + $footer-heigth + $h-menus);
         width: $w-100;
         max-height: calc(95vh - $h-desconsiderar);
         overflow-y: auto;
+        margin-top: 0.8rem;
 
         &::-webkit-scrollbar {
           display: none;
