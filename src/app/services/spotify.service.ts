@@ -6,10 +6,12 @@ import {
   getDataPlaylist,
   getDataUser,
   getTopArtists,
-} from '../common/getDataUser';
+  spotifyGetSearchMusic,
+} from '../common/spotifyHelper';
 import { IPlaylist } from '../interface/IPlaylist';
 import { Router } from '@angular/router';
 import { IArtists } from '../interface/IArtistas';
+import { IMusic } from '../interface/IMusic';
 
 @Injectable({
   providedIn: 'root',
@@ -77,6 +79,12 @@ export class SpotifyService {
     return artist.items.map(getTopArtists);
   }
 
+  async searchMusic(offset = 0, limit = 50): Promise<IMusic[]> {
+    const music = await this.spotifyApi.getMySavedTracks({ offset, limit });
+    console.log(music);
+    return music.items.map((music) => spotifyGetSearchMusic(music.track));
+  }
+
   //Função que concatena toda a url que leva para a página de autorização do spotify
   getUrlLogin() {
     const authEndpoint = `${SpotifyConfiguration.authEndpoint}?`;
@@ -105,6 +113,11 @@ export class SpotifyService {
   definedAcessToken(token: string) {
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
+  }
+
+  async startMusic(musicId: string) {
+    await this.spotifyApi.queue(musicId);
+    await this.spotifyApi.skipToNext();
   }
 
   logout() {

@@ -1,4 +1,6 @@
+import { addMilliseconds, format } from 'date-fns';
 import { IArtists } from '../interface/IArtistas';
+import { IMusic } from '../interface/IMusic';
 import { IPlaylist } from '../interface/IPlaylist';
 import { IUsuario } from '../interface/IUsuario';
 
@@ -50,5 +52,30 @@ export function getTopArtists(data: SpotifyApi.ArtistObjectFull): IArtists {
     id: data.id,
     name: data.name,
     imageUrl: data.images.sort((a, b) => a.width - b.width).pop().url, //pegando a imagem com a maior largura
+  };
+}
+
+export function spotifyGetSearchMusic(
+  data: SpotifyApi.TrackObjectFull
+): IMusic {
+  //Trasnformando o milisegundo em minuto e segundo
+  const msForMinute = (ms: number) => {
+    const data = addMilliseconds(new Date(0), ms);
+    return format(data, 'mm:ss');
+  };
+
+  return {
+    id: data.uri,
+    title: data.name,
+    album: {
+      id: data.album.id,
+      name: data.album.name,
+      imageUrl: data.album.images.shift().url,
+    },
+    artists: data.artists.map((artist) => ({
+      id: artist.id,
+      name: artist.name,
+    })),
+    time: msForMinute(data.duration_ms),
   };
 }

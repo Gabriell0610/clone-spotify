@@ -4,11 +4,11 @@ import { IArtists } from 'src/app/interface/IArtistas';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
-  selector: 'app-top-artists',
-  templateUrl: './top-artists.component.html',
-  styleUrls: ['./top-artists.component.scss'],
+  selector: 'app-top-artist',
+  templateUrl: './top-artist.component.html',
+  styleUrls: ['./top-artist.component.scss'],
 })
-export class TopArtistsComponent implements OnInit {
+export class TopArtistComponent implements OnInit {
   artists: IArtists = newArtist(); //Inicializando o artista como string vazia e não como null
 
   constructor(private spotifyService: SpotifyService) {}
@@ -22,7 +22,7 @@ export class TopArtistsComponent implements OnInit {
     console.log(topArtist);
 
     if (!!topArtist) {
-      this.artists = topArtist[0];
+      this.artists = topArtist[1];
       console.log(this.artists);
     }
   }
