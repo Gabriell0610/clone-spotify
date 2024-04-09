@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   async getMusics() {
-    this.musics = await this.spotifyService.searchMusic(0, 50);
+    this.musics = await this.spotifyService.searchMusic();
     console.log(this.musics);
   }
 
