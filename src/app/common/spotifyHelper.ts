@@ -65,7 +65,7 @@ export function spotifyGetSearchMusic(
   };
 
   return {
-    id: data.uri,
+    id: data.uri, // id que contém a track da música
     title: data.name,
     album: {
       id: data.album.id,

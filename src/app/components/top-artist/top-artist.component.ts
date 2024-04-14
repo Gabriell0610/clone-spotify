@@ -22,7 +22,7 @@ export class TopArtistComponent implements OnInit {
     console.log(topArtist);
 
     if (!!topArtist) {
-      this.artists = topArtist[1];
+      this.artists = topArtist[0];
       console.log(this.artists);
     }
   }
