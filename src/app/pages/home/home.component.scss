@@ -1,8 +1,21 @@
+@import "variables";
 .container {
   display: flex;
   justify-content: space-between;
 
-  .my-music {
+  ::-webkit-scrollbar {
+    width: 7px;
+    &-thumb {
+      background-color: rgba($cor-primaria, 0.2);
+      border-radius: 10px;
+    }
+
+    &-track {
+      background-color: transparent;
+    }
+  }
+
+  .my-musics {
     width: 100%;
     max-height: 100vh;
     overflow-y: auto;
