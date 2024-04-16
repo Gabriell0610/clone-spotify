@@ -3,6 +3,7 @@ import { IArtists } from '../interface/IArtistas';
 import { IMusic } from '../interface/IMusic';
 import { IPlaylist } from '../interface/IPlaylist';
 import { IUsuario } from '../interface/IUsuario';
+import { newMusic } from './factory';
 
 //Função que preenche a interface de usuário com as informações que vem do servi
 export function getDataUser(
@@ -58,6 +59,7 @@ export function getTopArtists(data: SpotifyApi.ArtistObjectFull): IArtists {
 export function spotifyGetSearchMusic(
   data: SpotifyApi.TrackObjectFull
 ): IMusic {
+  if (!data) return newMusic();
   //Trasnformando o milisegundo em minuto e segundo
   const msForMinute = (ms: number) => {
     const data = addMilliseconds(new Date(0), ms);

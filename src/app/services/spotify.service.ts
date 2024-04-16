@@ -54,6 +54,7 @@ export class SpotifyService {
       return error;
     }
   }
+
   //pegando os dados do usuário
   async getSpotifyUser() {
     //Pegando os dados do usuário pela api do spotify e armazendo na variával userInfo
@@ -79,10 +80,24 @@ export class SpotifyService {
     return artist.items.map(getTopArtists);
   }
 
+  //Método que pega todas as músicas curtidas do usuário
   async searchMusic(offset = 0, limit = 50): Promise<IMusic[]> {
     const music = await this.spotifyApi.getMySavedTracks({ offset, limit });
     console.log(music);
     return music.items.map((music) => spotifyGetSearchMusic(music.track));
+  }
+
+  //Método que da play na musica
+  async startMusic(musicId: string) {
+    await this.spotifyApi.queue(musicId);
+    await this.spotifyApi.skipToNext();
+  }
+
+  //Pegando a música que está tocando atual
+  async getCurrentMusic(): Promise<IMusic> {
+    const music = await this.spotifyApi.getMyCurrentPlayingTrack();
+
+    return spotifyGetSearchMusic(music.item);
   }
 
   //Função que concatena toda a url que leva para a página de autorização do spotify
@@ -113,11 +128,6 @@ export class SpotifyService {
   definedAcessToken(token: string) {
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
-  }
-
-  async startMusic(musicId: string) {
-    await this.spotifyApi.queue(musicId);
-    await this.spotifyApi.skipToNext();
   }
 
   logout() {

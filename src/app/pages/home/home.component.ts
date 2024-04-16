@@ -13,10 +13,10 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class HomeComponent implements OnInit, OnDestroy {
   musics: IMusic[] = [];
 
-  //Variável que irá armazenas a música atual que está tocando
+  //Variável que irá armazenar a música atual que está tocando
   currentMusic: IMusic = newMusic();
 
-  //Array resposável por se desinscrever da inscrição atual, evitando assim um acumulo de requisições
+  //Array responsável por se desinscrever da inscrição atual, evitando assim um acumulo de requisições
   subs: Subscription[] = [];
 
   constructor(
@@ -33,25 +33,31 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subs.forEach((sub) => sub.unsubscribe());
   }
 
+  //Método que pega a música
   async getMusics() {
     this.musics = await this.spotifyService.searchMusic();
     console.log(this.musics);
+  }
+
+  //Método que pega o nome do artista e separa por vírgula e espaço
+  getArtist(musica: IMusic) {
+    return musica.artists.map((artist) => artist.name).join(', ');
+  }
+
+  //Método que starta a música pelo id
+  async playMusic(music: IMusic) {
+    await this.spotifyService.startMusic(music.id);
+    this.playerService.definedCurrentMusic(music);
   }
 
   //Método que se inscreve no behaviorSubject e pega o valor da musica atual e armazena na variável currentMusic
   getCurrentMusic() {
     const sub = this.playerService.currentMusic.subscribe((music) => {
       this.currentMusic = music;
+      console.log('musica atual:', this.currentMusic);
     });
+    console.log(this.currentMusic);
 
     this.subs.push(sub);
-  }
-
-  getArtist(musica: IMusic) {
-    return musica.artists.map((artist) => artist.name).join(', ');
-  }
-
-  async playMusic(music: IMusic) {
-    await this.spotifyService.startMusic(music.id);
   }
 }
