@@ -10,14 +10,23 @@ import { SpotifyService } from './spotify.service';
 export class PlayerService {
   // Variável que é uma instância de BehaviorSubject que é inicializada com o factory newMusic()
   currentMusic = new BehaviorSubject<IMusic>(newMusic());
+  timeId: any = null;
 
   constructor(private spotifyService: SpotifyService) {
     this.getCurrentMusic();
   }
 
   async getCurrentMusic() {
-    const music = await this.spotifyService.getCurrentMusic();
+    clearTimeout(this.timeId);
+
+    //Obtendo a música
+    const music = await this.spotifyService.getDataCurrentMusic();
     this.definedCurrentMusic(music);
+
+    //causando o loop para pegar a todo momento os dados da música que está tocando
+    this.timeId = setInterval(async () => {
+      await this.getCurrentMusic();
+    }, 3000);
   }
 
   definedCurrentMusic(music: IMusic) {

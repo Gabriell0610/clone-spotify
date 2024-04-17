@@ -54,9 +54,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   getCurrentMusic() {
     const sub = this.playerService.currentMusic.subscribe((music) => {
       this.currentMusic = music;
-      console.log('musica atual:', this.currentMusic);
+      //console.log('musica atual:', this.currentMusic);
     });
-    console.log(this.currentMusic);
 
     this.subs.push(sub);
   }

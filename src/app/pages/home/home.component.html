@@ -17,7 +17,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let music of musics" (click)="playMusic(music)">
+        <tr
+          *ngFor="let music of musics"
+          (click)="playMusic(music)"
+          [class.executing]="music.id === currentMusic.id"
+        >
           <td class="play"><i class="fa-solid fa-play"></i></td>
           <td>{{ music.title }}</td>
           <td>{{ getArtist(music) }}</td>

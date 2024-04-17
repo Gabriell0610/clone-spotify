@@ -69,7 +69,7 @@ export class SpotifyService {
       offset,
       limit,
     });
-    console.log(playlists);
+    //console.log(playlists);
     return playlists.items.map((item) => getDataPlaylist(item));
   }
 
@@ -83,7 +83,7 @@ export class SpotifyService {
   //Método que pega todas as músicas curtidas do usuário
   async searchMusic(offset = 0, limit = 50): Promise<IMusic[]> {
     const music = await this.spotifyApi.getMySavedTracks({ offset, limit });
-    console.log(music);
+    //console.log(music);
     return music.items.map((music) => spotifyGetSearchMusic(music.track));
   }
 
@@ -94,7 +94,7 @@ export class SpotifyService {
   }
 
   //Pegando a música que está tocando atual
-  async getCurrentMusic(): Promise<IMusic> {
+  async getDataCurrentMusic(): Promise<IMusic> {
     const music = await this.spotifyApi.getMyCurrentPlayingTrack();
 
     return spotifyGetSearchMusic(music.item);
