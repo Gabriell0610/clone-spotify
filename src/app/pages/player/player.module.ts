@@ -9,6 +9,8 @@ import { FooterUserComponent } from 'src/app/components/footer-user/footer-user.
 import { HomeComponent } from '../home/home.component';
 import { TopArtistComponent } from 'src/app/components/top-artist/top-artist.component';
 import { RigthPainelComponent } from 'src/app/components/rigth-painel/rigth-painel.component';
+import { CurrentSearchComponent } from 'src/app/components/current-search/current-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     PlayerComponent,
@@ -18,7 +20,13 @@ import { RigthPainelComponent } from 'src/app/components/rigth-painel/rigth-pain
     HomeComponent,
     TopArtistComponent,
     RigthPainelComponent,
+    CurrentSearchComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(PlayerRoutes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(PlayerRoutes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class PlayerModule {}
