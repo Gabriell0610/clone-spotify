@@ -75,7 +75,7 @@ export class SpotifyService {
 
   //Pegando os top 20 artistas do usuário
   async getArtistsUser(limit = 10): Promise<IArtists[]> {
-    const artist = await this.spotifyApi.getMyTopArtists(limit);
+    const artist = await this.spotifyApi.getMyTopArtists({ limit });
     console.log(artist);
     return artist.items.map(getTopArtists);
   }

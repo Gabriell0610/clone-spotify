@@ -11,6 +11,8 @@ import { TopArtistComponent } from 'src/app/components/top-artist/top-artist.com
 import { RigthPainelComponent } from 'src/app/components/rigth-painel/rigth-painel.component';
 import { CurrentSearchComponent } from 'src/app/components/current-search/current-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.component';
+import { ArtistsImageItemComponent } from 'src/app/components/artists-image-item/artists-image-item.component';
 @NgModule({
   declarations: [
     PlayerComponent,
@@ -21,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TopArtistComponent,
     RigthPainelComponent,
     CurrentSearchComponent,
+    TopArtistsComponent,
+    ArtistsImageItemComponent,
   ],
   imports: [
     CommonModule,
