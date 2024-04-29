@@ -1,11 +1,11 @@
 import { addMilliseconds, format } from 'date-fns';
-import { IArtists } from '../interface/IArtistas';
+import { IArtist } from '../interface/IArtistas';
 import { IMusic } from '../interface/IMusic';
 import { IPlaylist } from '../interface/IPlaylist';
 import { IUsuario } from '../interface/IUsuario';
 import { newMusic } from './factory';
 
-//Função que preenche a interface de usuário com as informações que vem do servi
+//Função que preenche a interface de usuário com as informações que vem do service
 export function getDataUser(
   data: SpotifyApi.CurrentUsersProfileResponse
 ): IUsuario {
@@ -48,7 +48,7 @@ export function getDataPlaylist(
   };
 }
 
-export function getTopArtists(data: SpotifyApi.ArtistObjectFull): IArtists {
+export function getTopArtist(data: SpotifyApi.ArtistObjectFull): IArtist {
   return {
     id: data.id,
     name: data.name,
@@ -65,6 +65,7 @@ export function spotifyGetSearchMusic(
     const data = addMilliseconds(new Date(0), ms);
     return format(data, 'mm:ss');
   };
+
 
   return {
     id: data.uri, // id que contém a track da música

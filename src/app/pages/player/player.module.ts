@@ -13,6 +13,9 @@ import { CurrentSearchComponent } from 'src/app/components/current-search/curren
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.component';
 import { ArtistsImageItemComponent } from 'src/app/components/artists-image-item/artists-image-item.component';
+import {PlayerCardComponent} from 'src/app/components/player-card/player-card.component'
+
+
 @NgModule({
   declarations: [
     PlayerComponent,
@@ -25,6 +28,7 @@ import { ArtistsImageItemComponent } from 'src/app/components/artists-image-item
     CurrentSearchComponent,
     TopArtistsComponent,
     ArtistsImageItemComponent,
+    PlayerCardComponent
   ],
   imports: [
     CommonModule,

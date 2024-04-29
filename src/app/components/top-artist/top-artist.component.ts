@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { newArtist } from 'src/app/common/factory';
-import { IArtists } from 'src/app/interface/IArtistas';
+import { IArtist } from 'src/app/interface/IArtistas';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   styleUrls: ['./top-artist.component.scss'],
 })
 export class TopArtistComponent implements OnInit {
-  artists: IArtists = newArtist(); //Inicializando o artista como string vazia e não como null
+  artists: IArtist = newArtist(); //Inicializando o artista como string vazia e não como null
 
   constructor(private spotifyService: SpotifyService) {}
 

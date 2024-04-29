@@ -1,4 +1,4 @@
-export interface IArtists {
+export interface IArtist {
   id: string;
   name: string;
   imageUrl: string;

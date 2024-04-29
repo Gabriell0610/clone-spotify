@@ -1,7 +1,7 @@
-import { IArtists } from '../interface/IArtistas';
+import { IArtist } from '../interface/IArtistas';
 import { IMusic } from '../interface/IMusic';
 
-export function newArtist(): IArtists {
+export function newArtist(): IArtist {
   return {
     id: '',
     name: '',

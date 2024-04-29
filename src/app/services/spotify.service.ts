@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
-import Spotify from 'spotify-web-api-js';
+//import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interface/IUsuario';
 import {
   getDataPlaylist,
   getDataUser,
-  getTopArtists,
+  getTopArtist,
   spotifyGetSearchMusic,
 } from '../common/spotifyHelper';
 import { IPlaylist } from '../interface/IPlaylist';
 import { Router } from '@angular/router';
-import { IArtists } from '../interface/IArtistas';
+import { IArtist } from '../interface/IArtistas';
 import { IMusic } from '../interface/IMusic';
 
+import Spotify from 'spotify-web-api-js';
 @Injectable({
   providedIn: 'root',
 })
@@ -74,10 +75,10 @@ export class SpotifyService {
   }
 
   //Pegando os top 20 artistas do usuário
-  async getArtistsUser(limit = 10): Promise<IArtists[]> {
+  async getArtistsUser(limit = 10): Promise<IArtist[]> {
     const artist = await this.spotifyApi.getMyTopArtists({ limit });
     console.log(artist);
-    return artist.items.map(getTopArtists);
+    return artist.items.map(getTopArtist);
   }
 
   //Método que pega todas as músicas curtidas do usuário
