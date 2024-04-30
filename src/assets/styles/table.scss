@@ -12,11 +12,7 @@
   }
 
   .executing {
-    background-color: $branco;
-    padding: 10px;
-    box-shadow: 0px 0px 15px $preto-transparent-30;
-    border-collapse: collapse;
-    border-radius: 4px;
+    color: $branco;
 
     td {
       color: $cor-primaria;

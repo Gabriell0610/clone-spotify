@@ -1,0 +1,26 @@
+@import "variables";
+
+.container {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .image {
+    height: 60%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+  }
+
+  span {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px 0 10px 5px;
+    color: $cor-primaria;
+    font-weight: bold;
+  }
+}

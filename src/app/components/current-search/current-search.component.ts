@@ -12,7 +12,6 @@ export class CurrentSearchComponent implements OnInit {
     'Top Brasil',
     'Top Global',
     'Esquenta Sertanejo',
-    'Shaw Mendes',
   ];
 
   valueInput: String = '';
