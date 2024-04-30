@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   //Variável que irá armazenar a música atual que está tocando
   currentMusic: IMusic = newMusic();
-
+  lastMusic: IMusic
   //Array responsável por se desinscrever da inscrição atual, evitando assim um acumulo de requisições
   subs: Subscription[] = [];
 
@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const sub = this.playerService.currentMusic.subscribe((music) => {
       this.currentMusic = music;
       //console.log('musica atual:', this.currentMusic);
+      this.lastMusic = this.currentMusic
     });
 
     this.subs.push(sub);

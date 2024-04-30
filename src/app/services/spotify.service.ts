@@ -101,6 +101,14 @@ export class SpotifyService {
     return spotifyGetSearchMusic(music.item);
   }
 
+  async backMusic() {
+    await this.spotifyApi.skipToPrevious()
+  }
+
+  async nextMusic() {
+    await this.spotifyApi.skipToNext()
+  }
+
   //Função que concatena toda a url que leva para a página de autorização do spotify
   getUrlLogin() {
     const authEndpoint = `${SpotifyConfiguration.authEndpoint}?`;

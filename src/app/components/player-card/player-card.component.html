@@ -1,7 +1,13 @@
-<div class="container card">
+<div class="container card ">
   <div
     class="image"
     [style.background-image]="'url(' + currentMusic.album.imageUrl + ')'"
   ></div>
   <span>{{ currentMusic.title }}</span>
+  <div class="buttons">
+    <i class="fa-solid fa-forward" (click)="nextMusic()"></i>
+    <i class="fa-solid fa-play play" (click)="playMusic(currentMusic)"></i>
+    <i class="fa-solid fa-backward" (click)="backMusic()"></i>
+  </div>
 </div>
+

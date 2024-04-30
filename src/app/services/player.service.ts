@@ -17,20 +17,30 @@ export class PlayerService {
   }
 
   async getCurrentMusic() {
-    // clearTimeout(this.timeId);
+    clearTimeout(this.timeId);
 
     //Obtendo a música
     const music = await this.spotifyService.getDataCurrentMusic();
     this.definedCurrentMusic(music);
+   
 
     //causando o loop para pegar a todo momento os dados da música que está tocando
-    // this.timeId = setInterval(async () => {
-    //   await this.getCurrentMusic();
-    // }, 3000);
+    this.timeId = setInterval(async () => {
+      await this.getCurrentMusic();
+    }, 3000);
   }
 
   definedCurrentMusic(music: IMusic) {
     // o método next serve para publicar esse valor para todos os componentes que estão escutando a variável currentMusic
     this.currentMusic.next(music);
   }
+
+  backMusic() {
+    this.spotifyService.backMusic()
+  }
+
+  nextMusic() {
+    this.spotifyService.nextMusic()
+  }
+
 }
