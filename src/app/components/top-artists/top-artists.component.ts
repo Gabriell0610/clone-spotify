@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IArtists } from 'src/app/interface/IArtistas';
+import { IArtist } from 'src/app/interface/IArtistas';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   styleUrls: ['./top-artists.component.scss'],
 })
 export class TopArtistsComponent implements OnInit {
-  topArtists: IArtists[] = [];
+  topArtists: IArtist[] = [];
 
   constructor(private spotifyService: SpotifyService) {}
 

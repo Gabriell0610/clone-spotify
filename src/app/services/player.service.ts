@@ -17,16 +17,16 @@ export class PlayerService {
   }
 
   async getCurrentMusic() {
-    clearTimeout(this.timeId);
+    // clearTimeout(this.timeId);
 
     //Obtendo a música
     const music = await this.spotifyService.getDataCurrentMusic();
     this.definedCurrentMusic(music);
 
     //causando o loop para pegar a todo momento os dados da música que está tocando
-    this.timeId = setInterval(async () => {
-      await this.getCurrentMusic();
-    }, 3000);
+    // this.timeId = setInterval(async () => {
+    //   await this.getCurrentMusic();
+    // }, 3000);
   }
 
   definedCurrentMusic(music: IMusic) {
